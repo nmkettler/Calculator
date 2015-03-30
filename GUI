@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class GUI extends JFrame{
 	private JTextField answerField;
-	private JButton one, two, three, four, five, six, seven, eight, nine, zero, add, sub, multiply, div, equals;
+	private JButton one, two, three, four, five, six, seven, eight, nine, zero, add, sub, multiply, div, equals, clear;
 	private String sTemp1, sTemp2, sAnswer;
 	private double answer = 0.0;
 	private JPanel contentPanel;
@@ -32,8 +32,9 @@ public class GUI extends JFrame{
 		multiply = new JButton("*");
 		div = new JButton("/");
 		equals = new JButton("=");
+		clear = new JButton("C");
 		
-		Dimension dim = new Dimension(75, 40);
+		Dimension dim = new Dimension(75, 30);
 		
 		one.setPreferredSize(dim);
 		two.setPreferredSize(dim);
@@ -44,12 +45,13 @@ public class GUI extends JFrame{
 		seven.setPreferredSize(dim);
 		eight.setPreferredSize(dim);
 		nine.setPreferredSize(dim); 
-		zero.setPreferredSize(new Dimension(225, 40));
-		add.setPreferredSize(new Dimension(115, 45));
-		sub.setPreferredSize(new Dimension(115, 45));
-		multiply.setPreferredSize(new Dimension(115, 45));
-		div.setPreferredSize(new Dimension(115, 45));
-		equals.setPreferredSize(new Dimension(225, 45));
+		zero.setPreferredSize(new Dimension(225, 25));
+		add.setPreferredSize(new Dimension(115, 25));
+		sub.setPreferredSize(new Dimension(115, 25));
+		multiply.setPreferredSize(new Dimension(115, 25));
+		div.setPreferredSize(new Dimension(115, 25));
+		equals.setPreferredSize(new Dimension(225, 25));
+		clear.setPreferredSize(new Dimension(225, 25));
 		
 		Numbers n = new Numbers(); //all the buttons in this class
 		Calc c = new Calc(); //all the operations/equals sign in this class
@@ -57,11 +59,11 @@ public class GUI extends JFrame{
 		one.addActionListener(n);two.addActionListener(n);three.addActionListener(n);
 		four.addActionListener(n);five.addActionListener(n);six.addActionListener(n);
 		seven.addActionListener(n);eight.addActionListener(n);nine.addActionListener(n);
-		zero.addActionListener(n);
+		zero.addActionListener(n); 
 		
 		add.addActionListener(c);sub.addActionListener(c);
 		multiply.addActionListener(c);div.addActionListener(c);equals.addActionListener(c);
-		
+		clear.addActionListener(c);
 		
 		contentPanel = new JPanel();
 		contentPanel.setBackground(Color.LIGHT_GRAY);
@@ -71,7 +73,7 @@ public class GUI extends JFrame{
 		contentPanel.add(one);contentPanel.add(two);contentPanel.add(three);contentPanel.add(four);
 		contentPanel.add(five);contentPanel.add(six);contentPanel.add(seven);contentPanel.add(eight);
 		contentPanel.add(nine);contentPanel.add(zero);contentPanel.add(add);contentPanel.add(sub);
-		contentPanel.add(multiply);contentPanel.add(div);contentPanel.add(equals);
+		contentPanel.add(multiply);contentPanel.add(div);contentPanel.add(equals);contentPanel.add(clear);
 		
 		this.setContentPane(contentPanel);
 		
@@ -367,9 +369,17 @@ public class GUI extends JFrame{
 							answerField.setText("DIVIDE BY ZERO ERROR");
 						}
 					}
-				}
+				}				
 			}
-			
+			if(src.equals(clear)){
+				sTemp1 = null;
+				sTemp2 = null;
+				equalsClicked = false;
+				optChosen = false;
+				operation = ' ';
+				answerField.setText(null);
+				sAnswer = null;
+			}
 		}
 		
 	}
