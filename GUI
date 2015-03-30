@@ -1,0 +1,377 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class GUI extends JFrame{
+	private JTextField answerField;
+	private JButton one, two, three, four, five, six, seven, eight, nine, zero, add, sub, multiply, div, equals;
+	private String sTemp1, sTemp2, sAnswer;
+	private double answer = 0.0;
+	private JPanel contentPanel;
+	private boolean equalsClicked = false , optChosen = false;
+	char operation = ' ';
+	
+	public GUI(){
+		super("Calculator");
+		
+		answerField = new JTextField(null, 20);
+		answerField.setEditable(false);
+		
+		one = new JButton("1");
+		two = new JButton("2");
+		three = new JButton("3");
+		four = new JButton("4");
+		five = new JButton("5");
+		six = new JButton("6");
+		seven = new JButton("7");
+		eight = new JButton("8");
+		nine = new JButton("9");
+		zero = new JButton("0");
+		add = new JButton("+");
+		sub = new JButton("-");
+		multiply = new JButton("*");
+		div = new JButton("/");
+		equals = new JButton("=");
+		
+		Dimension dim = new Dimension(75, 40);
+		
+		one.setPreferredSize(dim);
+		two.setPreferredSize(dim);
+		three.setPreferredSize(dim);
+		four.setPreferredSize(dim);
+		five.setPreferredSize(dim);
+		six.setPreferredSize(dim);
+		seven.setPreferredSize(dim);
+		eight.setPreferredSize(dim);
+		nine.setPreferredSize(dim); 
+		zero.setPreferredSize(new Dimension(225, 40));
+		add.setPreferredSize(new Dimension(115, 45));
+		sub.setPreferredSize(new Dimension(115, 45));
+		multiply.setPreferredSize(new Dimension(115, 45));
+		div.setPreferredSize(new Dimension(115, 45));
+		equals.setPreferredSize(new Dimension(225, 45));
+		
+		Numbers n = new Numbers(); //all the buttons in this class
+		Calc c = new Calc(); //all the operations/equals sign in this class
+		
+		one.addActionListener(n);two.addActionListener(n);three.addActionListener(n);
+		four.addActionListener(n);five.addActionListener(n);six.addActionListener(n);
+		seven.addActionListener(n);eight.addActionListener(n);nine.addActionListener(n);
+		zero.addActionListener(n);
+		
+		add.addActionListener(c);sub.addActionListener(c);
+		multiply.addActionListener(c);div.addActionListener(c);equals.addActionListener(c);
+		
+		
+		contentPanel = new JPanel();
+		contentPanel.setBackground(Color.LIGHT_GRAY);
+		contentPanel.setLayout(new FlowLayout());
+		
+		contentPanel.add(answerField, BorderLayout.NORTH);
+		contentPanel.add(one);contentPanel.add(two);contentPanel.add(three);contentPanel.add(four);
+		contentPanel.add(five);contentPanel.add(six);contentPanel.add(seven);contentPanel.add(eight);
+		contentPanel.add(nine);contentPanel.add(zero);contentPanel.add(add);contentPanel.add(sub);
+		contentPanel.add(multiply);contentPanel.add(div);contentPanel.add(equals);
+		
+		this.setContentPane(contentPanel);
+		
+	}
+	
+	private class Numbers implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+			JButton src = (JButton) event.getSource();
+			
+			if(src.equals(one)){
+				if(optChosen == false){
+					if(sTemp1 == null){
+						sTemp1 = "1";
+					}else{
+						sTemp1 += "1";
+					}					
+				}else{
+					if(sTemp2 == null){
+						sTemp2 = "1";
+					}else{
+						sTemp2 += "1";
+					}					
+				}
+				
+			}
+			
+			if(src.equals(two)){
+				if(optChosen == false){
+					if(sTemp1 == null){
+						sTemp1 = "2";
+					}else{
+						sTemp1 += "2";
+					}					
+				}else{
+					if(sTemp2 == null){
+						sTemp2 = "2";
+					}else{
+						sTemp2 += "2";
+					}					
+				}
+				
+			}
+			
+			if(src.equals(three)){
+				if(optChosen == false){
+					if(sTemp1 == null){
+						sTemp1 = "3";
+					}else{
+						sTemp1 += "3";
+					}					
+				}else{
+					if(sTemp2 == null){
+						sTemp2 = "3";
+					}else{
+						sTemp2 += "3";
+					}					
+				}
+				
+			}
+			
+			if(src.equals(four)){
+				if(optChosen == false){
+					if(sTemp1 == null){
+						sTemp1 = "4";
+					}else{
+						sTemp1 += "4";
+					}					
+				}else{
+					if(sTemp2 == null){
+						sTemp2 = "4";
+					}else{
+						sTemp2 += "4";
+					}					
+				}
+				
+			}
+			
+			if(src.equals(five)){
+				if(optChosen == false){
+					if(sTemp1 == null){
+						sTemp1 = "5";
+					}else{
+						sTemp1 += "5";
+					}					
+				}else{
+					if(sTemp2 == null){
+						sTemp2 = "5";
+					}else{
+						sTemp2 += "5";
+					}					
+				}
+				
+			}
+			
+			if(src.equals(six)){
+				if(optChosen == false){
+					if(sTemp1 == null){
+						sTemp1 = "6";
+					}else{
+						sTemp1 += "6";
+					}					
+				}else{
+					if(sTemp2 == null){
+						sTemp2 = "6";
+					}else{
+						sTemp2 += "6";
+					}					
+				}
+				
+			}
+			
+			if(src.equals(seven)){
+				if(optChosen == false){
+					if(sTemp1 == null){
+						sTemp1 = "7";
+					}else{
+						sTemp1 += "7";
+					}					
+				}else{
+					if(sTemp2 == null){
+						sTemp2 = "7";
+					}else{
+						sTemp2 += "7";
+					}					
+				}
+				
+			}
+			
+			if(src.equals(eight)){
+				if(optChosen == false){
+					if(sTemp1 == null){
+						sTemp1 = "8";
+					}else{
+						sTemp1 += "8";
+					}					
+				}else{
+					if(sTemp2 == null){
+						sTemp2 = "8";
+					}else{
+						sTemp2 += "8";
+					}					
+				}
+				
+			}
+			
+			if(src.equals(nine)){
+				if(optChosen == false){
+					if(sTemp1 == null){
+						sTemp1 = "9";
+					}else{
+						sTemp1 += "9";
+					}					
+				}else{
+					if(sTemp2 == null){
+						sTemp2 = "9";
+					}else{
+						sTemp2 += "9";
+					}					
+				}
+				
+			}
+			
+			if(src.equals(zero)){
+				if(optChosen == false){
+					if(sTemp1 == null){
+						sTemp1 = "0";
+					}else{
+						sTemp1 += "0";
+					}					
+				}else{
+					if(sTemp2 == null){
+						sTemp2 = "0";
+					}else{
+						sTemp2 += "0";
+					}					
+				}
+				
+			}
+			
+			if(equalsClicked == false){
+				if(optChosen == false){
+					answerField.setText(sTemp1);
+				}else{
+					answerField.setText(sTemp2);
+				}
+			}
+			
+			if(optChosen == false){
+				answerField.setText(sTemp1);				
+			}else{
+				answerField.setText(sTemp2);
+			}
+			
+		}
+		
+	}
+	
+	private class Calc implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+			JButton src = (JButton) event.getSource();
+			
+			if(src.equals(add)){
+				if(sTemp1 == null){
+					System.out.println("Choose your numbers first");
+				}else{
+					if(sTemp1 != null && sTemp2 == null){
+						optChosen = true;
+						operation = '+';
+					}else{
+						if(sTemp1 != null && sTemp2 != null){
+							System.out.println("Two operations only!");
+						}
+					}
+				}
+			}
+			
+			if(src.equals(sub)){
+				if(sTemp1 == null){
+					System.out.println("Choose your numbers first");
+				}else{
+					if(sTemp1 != null && sTemp2 == null){
+						optChosen = true;
+						operation = '-';
+					}else{
+						if(sTemp1 != null && sTemp2 != null){
+							System.out.println("Two operations only!");
+						}
+					}
+				}
+			}
+			
+			if(src.equals(multiply)){
+				if(sTemp1 == null){
+					System.out.println("Choose your numbers first");
+				}else{
+					if(sTemp1 != null && sTemp2 == null){
+						optChosen = true;
+						operation = '*';
+					}else{
+						if(sTemp1 != null && sTemp2 != null){
+							System.out.println("Two operations only!");
+						}
+					}
+				}
+			}
+			
+			if(src.equals(div)){
+				if(sTemp1 == null){
+					System.out.println("Choose your numbers first");
+				}else{
+					if(sTemp1 != null && sTemp2 == null){
+						optChosen = true;
+						operation = '/';
+					}else{
+						if(sTemp1 != null && sTemp2 != null){
+							System.out.println("Two operations only!");
+						}
+					}
+				}
+			}
+			
+			if(src.equals(equals)){
+				if(sTemp1 == null){
+					System.out.println("Choose your numbers first");
+				}else{
+					if(sTemp1 != null && sTemp2 == null){
+						System.out.println("Choose both numbers first");
+					}
+					if(sTemp1 != null && sTemp2 != null){
+						double d1 = 0.0, d2 = 0.0;
+						
+						d1 = Double.parseDouble(sTemp1); //converting String to Number
+						d2 = Double.parseDouble(sTemp2);
+						
+						switch(operation){
+						case '+':
+							answer = d1 + d2;
+							break;
+						case '-':
+							answer = d1 - d2;
+							break;
+						case '*':
+							answer = d1 * d2;
+							break;
+						case '/':
+							answer = d1 / d2;
+							break;
+						}
+						
+						sAnswer = Double.toString(answer);
+						answerField.setText(sAnswer);
+						if(operation == '/' && d2 == 0.0){
+							answerField.setText("DIVIDE BY ZERO ERROR");
+						}
+					}
+				}
+			}
+			
+		}
+		
+	}
+	
+}
